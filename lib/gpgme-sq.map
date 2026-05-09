@@ -1,0 +1,19 @@
+/* ELF symbol version script for gpgme-sq.
+ * GPGME_1.1 symbols are listed explicitly first; the wildcard in GPGME_1.0
+ * catches everything else, so new stubs never need a map update.
+ */
+
+GPGME_1.1 {
+  global:
+    gpgme_check_version_internal;
+    gpgme_ctx_get_engine_info;
+    gpgme_ctx_set_engine_info;
+    gpgme_op_import_keys;
+    gpgme_op_import_keys_start;
+    gpgme_set_engine_info;
+} GPGME_1.0;
+
+GPGME_1.0 {
+  global: gpgme_*;
+  local: *;
+};
